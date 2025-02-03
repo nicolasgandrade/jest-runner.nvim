@@ -49,7 +49,9 @@ local function get_current_line_command(baseCommand)
     return
   end
 
-  return baseCommand .. " '" .. test_file .. "' -t '" .. test_name .. "'"
+  test_name = vim.fn.shellescape(test_name, 1)
+
+  return baseCommand .. " '" .. test_file .. "' -t " .. test_name
 end
 
 M.build_jest_command = function(arg)
