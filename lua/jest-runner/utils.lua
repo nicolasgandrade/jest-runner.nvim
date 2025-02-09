@@ -22,6 +22,10 @@ local function get_jest_path(project_root)
   return project_root .. "/node_modules/jest/bin/jest.js"
 end
 
+local function escape_for_jest_pattern(str)
+  return str:gsub("%+", "\\+")
+end
+
 local function get_current_test_file()
   return vim.fn.expand("%:p")
 end
@@ -36,7 +40,7 @@ local function get_current_line()
 end
 
 local function get_current_file_command(baseCommand)
-  local test_file = get_current_test_file()
+  local test_file = escape_for_jest_pattern(get_current_test_file())
   return baseCommand .. " '" .. test_file .. "' "
 end
 
@@ -49,7 +53,7 @@ local function get_current_line_command(baseCommand)
     return
   end
 
-  test_name = vim.fn.shellescape(test_name, 1)
+  test_name = escape_for_jest_pattern(vim.fn.shellescape(test_name, 1))
 
   return baseCommand .. " '" .. test_file .. "' -t " .. test_name
 end
