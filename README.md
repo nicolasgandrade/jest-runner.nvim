@@ -19,4 +19,4 @@ You can install this plugin manually by cloning the repo into your editor's plug
 Make sure the path of the plugin is recognized by your editor. If not, you can try to configure it with `vim.opt.rtp:prepend("path-to-the-installed-plugin")` and then require it.
 
 ## Usage / Contributions
-I created this plugin to improve my productivity in my daily workflow, so you may run into issues that I haven't faced yet with the code. You can try this plugin out and check if it works for you, if you face any problems, feel free to open issues or PRs as well as forking the project.
+I created this plugin to improve my productivity in my daily workflow, so you may run into issues that I haven't faced yet with the code. You can try this plugin out and check if it works for you, if you face any problems, feel free to open issues or PRs.
