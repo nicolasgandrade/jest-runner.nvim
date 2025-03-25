@@ -11,7 +11,18 @@ This plugin allows you to execute Jest tests for specific files, projects, or ev
 ## Installation
 
 ### 💤 Lazy
-The easier way to install this plugin is by using the [Lazy Package Manager](https://github.com/folke/lazy.nvim). If you already use it, just add `{ "nicolasgandrade/jest-runner.nvim" }` to your plugins definition. The `:Jest <arg>` command may not be recognized at first, so if you run into this kind of issue, force it to be loaded by requiring it with `require("jest-runner")` too.
+The easier way to install this plugin is by using the [Lazy Package Manager](https://github.com/folke/lazy.nvim). If you already use it, just add `{ "nicolasgandrade/jest-runner.nvim" }` to your plugins definition. 
+
+In some cases, the `:Jest <arg>` command may not be recognized at first, so if you run into this kind of issue, force it to be loaded by requiring it with `require("jest-runner")` too. For instance:
+```lua
+return {
+  "nicolasgandrade/jest-runner.nvim",
+  lazy = false,
+  config = function()
+    require("jest-runner")
+  end,
+}
+```
 
 ### Manual
 You can install this plugin manually by cloning the repo into your editor's plugins directory. Then, you'll need to require it with `require("jest-runner")` in your main config file.
